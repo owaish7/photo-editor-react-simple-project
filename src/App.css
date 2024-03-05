@@ -1,0 +1,83 @@
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin :0;
+}
+
+.container{
+    display: grid;
+    grid-template-columns:1fr  auto ;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+    "image sidebar"
+    "slider sidebar";
+    height :100vh;
+    width: 100vw;
+    background-color:#DADADA;
+}
+
+.main-image {
+    grid-area: image;
+    background-image:url(https://img.freepik.com/free-photo/black-mini-coupe-road_114579-5056.jpg?w=360&t=st=1709643794~exp=1709644394~hmac=5dc9178c492d04e28e0352a8b90d83eae522235744eb8c6463b13d85d043e22d);
+    width: 100%;
+    height: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+.sidebar {
+    grid-area: sidebar;
+    background-color: hsl(265,100%,86%);
+    border-left : 1px solid hsl(265,100%,56%);
+    display :flex;
+    flex-direction :column;
+    align-items:stretch;
+
+}
+.sidebar-item{
+    cursor: pointer;
+    padding: 1rem;
+   border:none;
+    outline:none;
+    background-color: hsl(265,100%,86%);
+    position :relative;
+    transition: background-color 150ms;
+}
+
+.sidebar-item:hover,.sidebar-item:focus {
+    background-color: hsl(265,100%,76%);
+
+}
+
+.sidebar-item.active{
+    background-color: hsl(265,100%,66%);
+
+}
+.sidebar-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width :80%;
+    left:10%;
+    bottom:0;
+    background-color: hsl(265,100%,66%);
+    height: 1px;
+}
+
+
+
+.slider-container {
+    grid-area: slider;
+    background-color: green;
+    margin-top : 2rem;
+    padding: 2rem;
+}
+
+.slider {
+    width :100%;
+    cursor: pointer;
+}
